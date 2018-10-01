@@ -1,4 +1,4 @@
-package main.java.loginView;
+package loginView;
 
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
-import main.java.loginPresenter.LoginscreenPresenter;
+import loginPresenter.LoginscreenPresenter;
 
 public class LoginScreenViewImpl implements LoginscreenView{
 

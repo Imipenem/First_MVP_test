@@ -1,7 +1,7 @@
-package main.java.loginView;
+package loginView;
 
 import javafx.stage.Stage;
-import main.java.loginPresenter.LoginscreenPresenter;
+import loginPresenter.LoginscreenPresenter;
 
 public interface LoginscreenView {
     LoginscreenPresenter getLoginPresenter();

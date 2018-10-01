@@ -1,24 +1,22 @@
-package main.java.startup;
+package startup;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import main.java.loginPresenter.LoginScreenImpl;
-import main.java.loginPresenter.LoginscreenPresenter;
-import main.java.loginView.LoginScreenViewImpl;
-import main.java.loginView.LoginscreenView;
-import main.java.model.LoginModel;
-import main.java.model.LoginModelImpl;
+import loginPresenter.LoginScreenImpl;
+import loginPresenter.LoginscreenPresenter;
+import loginView.LoginScreenViewImpl;
+import model.LoginModel;
+import model.LoginModelImpl;
 
 public class Main extends Application {
 
+    private LoginscreenPresenter presenter = new LoginScreenImpl();
+    private LoginModel model = new LoginModelImpl();
+
     @Override
     public void start(Stage primaryStage) {
-
-        LoginscreenPresenter presenter = new LoginScreenImpl();
-        LoginscreenView view = new LoginScreenViewImpl(primaryStage);
-        LoginModel model = new LoginModelImpl();
         presenter.setLoginModel(model);
-        ((LoginScreenImpl) presenter).setLoginView(view);
+        ((LoginScreenImpl) presenter).setLoginView(new LoginScreenViewImpl(primaryStage));
         ((LoginScreenImpl) presenter).run();
     }
 

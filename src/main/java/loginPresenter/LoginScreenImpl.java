@@ -1,9 +1,9 @@
-package main.java.loginPresenter;
+package loginPresenter;
 
-import main.java.loginView.LoginscreenView;
-import main.java.model.LoginModel;
+import loginView.LoginscreenView;
+import model.LoginModel;
 
-public class LoginScreenImpl implements LoginscreenPresenter{
+public class LoginScreenImpl implements LoginscreenPresenter {
 
 LoginscreenView loginView;
 LoginModel loginModel;

@@ -1,6 +1,6 @@
-package main.java.loginPresenter;
+package loginPresenter;
 
-import main.java.model.LoginModel;
+import model.LoginModel;
 
 public interface LoginscreenPresenter {
     void setLoginModel(LoginModel loginModel);
