@@ -1,13 +1,13 @@
 package loginView;
 
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import loginPresenter.LoginscreenPresenter;
 
 public interface LoginscreenView {
-    LoginscreenPresenter getLoginPresenter();
-    void setLoginPresenter(LoginscreenPresenter loginPresenter);
     void initComponents(Stage primaryStage);
     void printLoginSuccessfull();
     void printLoginFailed();
-    void updateModelFromView();
+    Button getLoginButton();
+    String getUsernameField();
+    String getPasswordField();
 }

@@ -11,8 +11,8 @@ LoginModel loginModel;
 
     @Override
     public void handleLogin(String username, String password) {
-        loginView.updateModelFromView();
-        if (loginModel.getUsername().equals("CarlosMatos") && loginModel.getPassword().equals("BitconnectIsNoScam")) {
+        updateModelFromPresenter();
+        if (getLoginModel().getUsername().equals("CarlosMatos") && getLoginModel().getPassword().equals("BitconnectIsNoScam")) {
             getLoginView().printLoginSuccessfull();
         }
         else {
@@ -21,12 +21,20 @@ LoginModel loginModel;
     }
 
     public void run() {
-        //setLoginView(loginView);
-        //setLoginModel(loginModel);
         loginModel.setUsername("Test");
         loginModel.setPassword("Anfang");
-        loginView.setLoginPresenter(this);
+        setListenerForLoginButton();
     }
+
+    public void updateModelFromPresenter() {
+        loginModel.setUsername(loginView.getUsernameField());
+        loginModel.setPassword(loginView.getPasswordField());
+    }
+    @Override
+    public void setListenerForLoginButton() {
+        loginView.getLoginButton().setOnAction(e-> handleLogin(loginView.getUsernameField(),loginView.getPasswordField()));
+    }
+
 
     public void setLoginView(LoginscreenView loginView) {
         this.loginView = loginView;

@@ -8,13 +8,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
-import loginPresenter.LoginscreenPresenter;
 
 public class LoginScreenViewImpl implements LoginscreenView{
 
-    LoginscreenPresenter loginPresenter;
     TextField nameInput = new TextField();
     TextField passwordInput = new TextField();
+    Button logInButton;
 
 
 
@@ -50,7 +49,7 @@ public class LoginScreenViewImpl implements LoginscreenView{
         passwordInput.setPrefHeight(40);
 
 
-        Button logInButton = new Button("Log in");
+        logInButton = new Button("Log in");
         GridPane.setConstraints(logInButton, 0, 2);
         logInButton.prefWidthProperty().bind(grid.widthProperty());
         logInButton.prefHeightProperty().bind(grid.heightProperty());
@@ -63,14 +62,8 @@ public class LoginScreenViewImpl implements LoginscreenView{
         primaryStage.setScene(scene);
         primaryStage.setTitle("Welcome to Medical_Data Plot");
         primaryStage.show();
+    }
 
-        logInButton.setOnAction(e -> getLoginPresenter().handleLogin(nameInput.getText(),passwordInput.getText()));
-    }
-    @Override
-    public void updateModelFromView() {
-        getLoginPresenter().getLoginModel().setUsername(nameInput.getText());
-        getLoginPresenter().getLoginModel().setPassword(passwordInput.getText());
-    }
     @Override
     public void printLoginSuccessfull() {
         System.out.println("Login erfolgreich!");
@@ -83,12 +76,17 @@ public class LoginScreenViewImpl implements LoginscreenView{
     }
 
     @Override
-    public void setLoginPresenter(LoginscreenPresenter loginPresenter) {
-        this.loginPresenter = loginPresenter;
+    public Button getLoginButton() {
+        return logInButton;
     }
 
     @Override
-    public LoginscreenPresenter getLoginPresenter() {
-        return loginPresenter;
+    public String getUsernameField() {
+        return nameInput.getText();
+    }
+
+    @Override
+    public String getPasswordField() {
+        return passwordInput.getText();
     }
 }
